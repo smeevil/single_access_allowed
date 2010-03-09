@@ -1,0 +1,1 @@
+require 'single_access_allowed'
