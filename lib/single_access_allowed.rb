@@ -1,8 +1,8 @@
-class ApplicationController < ActionController::Base
-  def self.inherited(klass)
+module SingleAccessAllowed
+  def self.included(base)
     super
-    klass.extend(ClassMethods)
-    class << klass
+    base.extend(ClassMethods)
+    class << base
       attr_accessor :single_access_options
     end
   end
@@ -37,3 +37,5 @@ class ApplicationController < ActionController::Base
     end
   end
 end
+
+ActionController::Base.send(:include, SingleAccessAllowed)
