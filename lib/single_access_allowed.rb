@@ -37,5 +37,3 @@ module SingleAccessAllowed
     end
   end
 end
-
-ActionController::Base.send(:include, SingleAccessAllowed)
